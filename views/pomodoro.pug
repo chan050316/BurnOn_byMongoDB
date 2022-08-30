@@ -1,0 +1,66 @@
+doctype html
+html(lang="en")
+  head
+    title pomodoro
+    include includes/head.pug
+    link(rel="stylesheet", href="styles/defaultPageDesign.css")
+    link(rel="stylesheet", href="styles/pomodoro.css")
+    link(rel="stylesheet", href="styles/defaultPageDesign_mediaQuery.css")
+    link(rel="stylesheet", href="styles/pomodoro_mediaQuery.css")
+  body.banselect
+    div.intro-box#intro-inputs-box
+      form.intro-backBtn(action="/")
+        button.material-icons.icon-back &#xe5e0;
+      div.intro-typingBox
+        div.intro-typing
+          div.inputs
+            input(type="number")
+            div.sign h
+            input(type="number")
+            div.sign m
+          div.subText 일할 시간을 입력해 주세요
+        div.whiteLine
+        div.intro-typing
+          div.inputs
+            input(type="number")
+            div.sign h
+            input(type="number")
+            div.sign m
+          div.subText 쉬는 시간을 입력해 주세요
+      div.intro-btnBox
+        div.introBtn#inputBtnJS
+    div.intro-box#intro-box
+      form.intro-backBtn(action="/")
+        button.material-icons.icon-back &#xe5e0;
+      div.material-icons.icon-intro-close.icon-intro-closeJS &#xe5cd;
+      -for(i=0; i<7; i++)
+        div.introText-box
+          div.intro-text
+          div.introBtn.introBtnJS
+    include includes/alarmCover.pug
+    div.bodyBox-sideMenu
+      form(action="/")
+        button.button.btn-back
+          span.material-icons.icon-back &#xe5e0;
+    div.bodyBox-center
+      div.titleBox
+        div.mainTitle BurnOn
+        div.subTitle Pomodoro
+      div.timerBox
+        div.backGroundCircle.leftBack
+          div.showPercentCircle.left#loadingLeftJS
+        div.backGroundCircle.rightBack
+          div.showPercentCircle.right#loadingRightJS
+        div.inside-WhiteCircle
+        img(src="/images/거꾸로캠퍼스.webp").inside-CDCircle#CDCircleJS
+        div.inside-CDCircle-holeDesign1
+        div.inside-CDCircle-holeDesign2
+        div.inside-CDCircle-holeDesign3
+        div.inside-CDCircle-holeDesign4
+        div.inside-CDCircle-time#inside-CDCircle-timeJS
+      include includes/quote.pug
+      include includes/musicControler.pug
+    include includes/sideMenu.pug
+    script(src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js") 
+    include includes/script.pug
+    script(src="javascripts/pomodoro.js")

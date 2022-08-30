@@ -1,0 +1,49 @@
+doctype html
+html(lang="en")
+  head
+    title custom
+    include includes/head.pug
+    link(rel="stylesheet", href="styles/defaultPageDesign.css")
+    link(rel="stylesheet", href="styles/custom.css")
+    link(rel="stylesheet", href="styles/custom_mediaQuery.css")
+  body.banselect
+    div.bodyBox-sideMenu
+      form(action="/")
+        button.button.btn-back
+          span.material-icons.icon-back &#xe5e0;
+    div.bodyBox-center
+      div.titleBox
+        div.mainTitle BurnOn
+        div.subTitle Custom
+      div.customOptionBox
+        div.customOptionBoxHeader
+          div.customOption-title 
+            div.customOption-title__text Research custom option
+          div.enterBtn#enterBtn apply
+        div.customOption-options
+          //- , "한강물 온도 표시"
+          -const options = ["일정 표시", "급식 표시", "현재 시간", "오늘의 날씨"]
+          //- , "HanRiver"
+          -const optionsCookieNames = ["showSchedule", "showCafeteria", "time", "todayWeather"]
+          -for(j=0; j < options.length; j++)
+            div.customOption-options__box
+              div.customOption-options__text #{options[j]}
+              div.optionsCookieNames(style="display:none;") #{optionsCookieNames[j]}
+              div.customOption-options__text__decoration
+              div.customOption-options__button
+                div.customOption-options__button__text use
+    div.bodyBox-sideMenu#bodyBox-sideMenuJS
+      div.option-buttons
+        div.button.btn-menu
+          span.icon-hamburger.material-icons.sideBar__icon &#xe5d2;
+        div.sideBar__blank#sideBar__blankJS
+          span.material-icons.closeSideBar#closeSideBarJS.hidden &#xe5e1;
+      div.option-hamburger#option-hamburgerJS.hidden
+        -const PAGELINK = ["timer", "pomodoro", "custom"];
+        -const PAGENAME = ["Timer", "Pomodoro", "Custom"];
+        -for(i in PAGENAME)
+          form(action="/" + PAGELINK[i], method="get") 
+            button.movePageBox #{PAGENAME[i]}
+    script(src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js") 
+    script(src="javascripts/notyf.js") 
+    script(src="javascripts/custom.js")

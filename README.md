@@ -1,2 +1,3 @@
-# BurnOn_byMongoDB
-BurnOn by mongoDB
+# BurnOn
+
+타이머 기능 웹사이트

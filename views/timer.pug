@@ -1,0 +1,70 @@
+doctype html
+html(lang="en")
+  head
+    title Timer
+    include includes/head.pug
+    link(rel="stylesheet", href="styles/defaultPageDesign.css")
+    link(rel="stylesheet", href="styles/timer.css")
+    link(rel="stylesheet", href="styles/defaultPageDesign_mediaQuery.css")
+    link(rel="stylesheet", href="styles/timer_mediaQuery.css")
+  body.banselect
+    include includes/alarmCover.pug
+    div.bodyBox-sideMenu
+      form(action="/")
+        button.button.btn-back
+          span.material-icons.icon-back &#xe5e0;
+    div.bodyBox-center
+      div.titleBox
+        div.mainTitle BurnOn
+        div.subTitle Timer
+      div.timerBox
+        -for(i = 0; i < 2; i++)
+          div.decoration
+            div.decoration_string
+            div.decoration_string
+        div.backGroundCircle.leftBack
+          div.showPercentCircle.left#loadingLeftJS
+        div.backGroundCircle.rightBack
+          div.showPercentCircle.right#loadingRightJS
+        div.insideWhiteCircle
+        img(src="/images/거꾸로캠퍼스.webp").insideImageCircle
+        div.insideImageOveray
+          div.timer#timerJS
+            div.dash
+            input.timerNumJS(type="number")
+            div.timerTimeBox.timerTimeBoxJS.hidden
+              div.blink
+              -for(i = 0; i < 2; i++)
+                -for(j = 0; j < 10; j++)
+                  div.timerHourJS.timerTime #{i}#{j}
+              div.blink
+            div.sign h
+            input.timerNumJS(type="number")
+            div.timerTimeBox.timerTimeBoxJS.hidden
+              div.blink
+              -for(a = 0; a < 6; a++)
+                -for(b = 0; b < 10; b++)
+                  div.timerMinuteJS.timerTime #{a}#{b}
+              div.blink
+            div.sign m
+            div.timerTimeBox.timerTimeBoxJS(style="display : none")
+              div.blink
+              -for(a = 0; a < 6; a++)
+                -for(b = 0; b < 10; b++)
+                  div.timerSecondJS.timerTime #{a}#{b}
+              div.blink
+            div.dash
+          div.timerControler
+            div.timerControl#timerStartJS
+              canvas#startIconJS(width="20px", height="20px")
+            div.timerControl#timerStop(style="display:none;")
+              canvas#stopIconJS(width="20px", height="20px")
+            div.timerControl#timerEnd
+              canvas#endIconJS(width="20px", height="20px")
+      include includes/quote.pug
+      include includes/musicControler.pug
+    include includes/sideMenu.pug
+    script(src="javascripts/canvas.js")
+    script(src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js") 
+    include includes/script.pug
+    script(src="javascripts/timer.js")

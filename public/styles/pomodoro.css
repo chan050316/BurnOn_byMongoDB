@@ -1,0 +1,302 @@
+.body {
+  font-family: Cafe24SsurroundAir;
+}
+
+.intro-box {
+  position: absolute;
+  z-index: 20;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  overflow-x: hidden;
+  color: white;
+}
+
+.intro-box:first-child {
+  flex-direction: column;
+  justify-content: center;
+}
+
+.intro-box .intro-backBtn {
+  position: fixed;
+  z-index: 10;
+  left: 53px;
+  top: 47px;
+}
+
+.intro-box .intro-backBtn .icon-back {
+  background: none;
+  color: white;
+  font-size: 24px;
+}
+.intro-box .intro-backBtn .icon-back:hover {
+  cursor: pointer;
+}
+
+.intro-box .icon-intro-close {
+  position: fixed;
+  z-index: 10;
+  right: 28px;
+  top: 47px;
+  height: 50px;
+  width: 50px;
+  font-size: 35px;
+}
+.intro-box .icon-intro-close:hover {
+  cursor: pointer;
+}
+
+.intro-box .introText-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.intro-box .introText-box .intro-text {
+  margin-top: calc(50vh - 75px);
+  width: 100vw;
+  font-size: 75px;
+  text-align: center;
+}
+
+.intro-box .introBtn {
+  border: solid white 2px;
+  border-radius: 50%;
+  height: 45px;
+  width: 45px;
+  margin-top: 100px;
+  cursor: pointer;
+  animation: introBtnSizeChange 1s infinite;
+}
+
+@keyframes introBtnSizeChange {
+  0% {
+    transform: scale(100%);
+  }
+  50% {
+    transform: scale(120%);
+  }
+  100% {
+    transform: scale(100%);
+  }
+}
+
+.intro-box .intro-typingBox {
+  display: flex;
+}
+
+.intro-box .intro-typingBox .intro-typing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-box .intro-typingBox .intro-typing .inputs {
+  display: flex;
+  align-items: flex-end;
+}
+
+.intro-box .intro-typingBox .intro-typing .inputs input {
+  width: 150px;
+  height: 75px;
+  font-size: 75px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: white;
+  text-align: end;
+  vertical-align: end;
+  line-height: 40px;
+  font-family: Cafe24SsurroundAir;
+  padding-top: 13px;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.intro-box .intro-typingBox .intro-typing .inputs .sign {
+  font-size: 40px;
+  margin: 0 5px;
+}
+
+.intro-box .intro-typingBox .intro-typing .subText {
+  margin: 60px 25px;
+  font-size: 40px;
+}
+
+.intro-box .intro-typingBox .whiteLine {
+  display: inline-block;
+  margin: 0 40px 50px 40px;
+  height: 250px;
+  width: 2px;
+  background-color: white;
+}
+
+.intro-box .intro-btnBox .introBtn {
+  margin: 0;
+}
+
+.timerBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.timerBox .backGroundCircle {
+  position: relative;
+  width: calc(387px / 2);
+  height: 387px;
+  background-color: #c9c9c9;
+  border-radius: 387px 0 0 387px;
+  overflow: hidden;
+  display: flex;
+}
+
+.timerBox .leftBack {
+  z-index: 7;
+}
+
+.timerBox .rightBack {
+  z-index: 8;
+  border-radius: 0 387px 387px 0;
+}
+
+.timerBox .backGroundCircle .showPercentCircle {
+  position: absolute;
+  width: calc(387px / 2);
+  height: 387px;
+  z-index: 5;
+  background-color: #474747;
+}
+
+.timerBox .backGroundCircle .left {
+  z-index: 6;
+  transform-origin: 100% 50%;
+  animation-delay: 30s;
+  transform: rotate(180deg);
+  animation-name: showPercent__left;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+}
+
+@keyframes showPercent__leftWork {
+  0% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes showPercent__leftBreak {
+  0% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.timerBox .backGroundCircle .right {
+  z-index: 6;
+  transform-origin: 0% 50%;
+  transform: rotate(180deg);
+  animation-name: showPercent__right;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+}
+
+@keyframes showPercent__rightWork {
+  0% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes showPercent__rightBreak {
+  0% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.timerBox .inside-WhiteCircle {
+  position: absolute;
+  z-index: 9;
+  width: 370px;
+  height: 370px;
+  background-color: #f5f5f5;
+  border-radius: 50%;
+}
+
+.timerBox .inside-CDCircle {
+  position: absolute;
+  z-index: 10;
+  object-fit: cover;
+  height: 363px;
+  width: 363px;
+  border-radius: 70%;
+  transform: rotate(0deg);
+  transition-timing-function: linear;
+}
+
+.timerBox .inside-CDCircle-holeDesign1 {
+  position: absolute;
+  z-index: 10;
+  height: 95px;
+  width: 95px;
+  background-color: #c4c4c4;
+  border-radius: 50%;
+}
+
+.timerBox .inside-CDCircle-holeDesign2 {
+  position: absolute;
+  z-index: 10;
+  height: 90px;
+  width: 90px;
+  background-color: #f5f5f5;
+  border-radius: 50%;
+}
+
+.timerBox .inside-CDCircle-holeDesign3 {
+  position: absolute;
+  z-index: 10;
+  height: 85px;
+  width: 85px;
+  background-color: #c4c4c4;
+  border-radius: 50%;
+}
+
+.timerBox .inside-CDCircle-holeDesign4 {
+  position: absolute;
+  z-index: 10;
+  height: 80px;
+  width: 80px;
+  background-color: #f5f5f5;
+  border-radius: 50%;
+}
+
+.timerBox .inside-CDCircle-time {
+  position: absolute;
+  z-index: 10;
+}

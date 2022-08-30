@@ -1,0 +1,22 @@
+{
+  "Mon": {
+    "lunch": ["방학"],
+    "dinner": ["방학"]
+  },
+  "Tue": {
+    "lunch": ["방학"],
+    "dinner": ["방학"]
+  },
+  "Wed": {
+    "lunch": ["방학"],
+    "dinner": ["방학"]
+  },
+  "Thu": {
+    "lunch": ["방학"],
+    "dinner": ["방학"]
+  },
+  "Fri": {
+    "lunch": ["방학"],
+    "dinner": ["방학"]
+  }
+}

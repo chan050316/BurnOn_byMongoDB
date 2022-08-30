@@ -1,0 +1,403 @@
+body {
+  display: flex;
+  font-family: Cafe24SsurroundAir;
+  background-color: #f5f5f5;
+}
+
+.button {
+  background-color: #282828;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.coverPage-endTimer {
+  position: fixed;
+  z-index: 20;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.coverPage-endTimer .intro-backBtn {
+  position: fixed;
+  z-index: 10;
+  left: 53px;
+  top: 47px;
+}
+
+.coverPage-endTimer .intro-backBtn .icon-back {
+  background: none;
+  color: white;
+}
+.coverPage-endTimer .intro-backBtn .icon-back:hover {
+  cursor: pointer;
+}
+
+.coverPage-endTimer .coverPage-typing {
+  margin-top: calc(50vh - 75px);
+  width: 100vw;
+  font-size: 75px;
+  text-align: center;
+}
+
+.coverPage-endTimer .coverPage-btn {
+  border: solid white 2px;
+  border-radius: 50%;
+  height: 45px;
+  width: 45px;
+  margin-top: 100px;
+  cursor: pointer;
+  animation: introBtnSizeChange 1s infinite;
+}
+
+@keyframes introBtnSizeChange {
+  0% {
+    transform: scale(100%);
+  }
+  50% {
+    transform: scale(120%);
+  }
+  100% {
+    transform: scale(100%);
+  }
+}
+
+.bodyBox-sideMenu {
+  width: 8vw;
+  height: 100vh;
+}
+
+.bodyBox-sideMenu .button .material-icons {
+  color: #f5f5f5;
+}
+
+.bodyBox-sideMenu form .btn-back {
+  margin: 40px 0 0 40px;
+  border: none;
+}
+
+.bodyBox-sideMenu form .btn-back .icon-back {
+  color: #f5f5f5;
+  margin-left: 14.5px;
+  font-size: 20px;
+}
+
+.bodyBox-sideMenu .btn-menu {
+  margin: 40px 0 0 40px;
+}
+
+.bodyBox-sideMenu .btn-menu .icon-hamburger {
+  margin-left: 9px;
+  font-size: 23px;
+}
+
+.bodyBox-sideMenu .btn-menu .icon-music {
+  margin-left: 9px;
+  font-size: 23px;
+}
+
+.bodyBox-sideMenu .btn-menu .icon-alarm {
+  margin-left: 8.6px;
+  font-size: 24px;
+}
+
+.sideBar {
+  position: absolute;
+  right: 0;
+  background-color: #282828;
+  width: 28vw;
+  display: flex;
+  z-index: 10;
+}
+
+.sideBar .sideBar__btn-menu {
+  border-radius: 0;
+  background-color: #050505;
+  margin: 0;
+  width: 72px;
+  height: 72px;
+  justify-content: center;
+  color: #f5f5f5;
+}
+
+.sideBar .checked {
+  background-color: #282828;
+}
+
+.sideBar .sideBar__btn-menu:hover .sideBar__icon {
+  color: #e97388;
+}
+
+.sideBar .sideBar__btn-menu .sideBar__icon {
+  margin: 0;
+}
+
+.sideBar .sideBar__blank {
+  height: calc(100vh - 216px);
+  background-color: #050505;
+  width: 72px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.sideBar .sideBar__blank .closeSideBar {
+  color: #f5f5f5;
+  transition-duration: 1.3s;
+}
+
+.option-hamburger {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.option-hamburger form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh / 3 - 2px);
+  width: 85%;
+  border-bottom: #f5f5f5 solid 1px;
+}
+
+.option-hamburger form:nth-child(3) {
+  border: none;
+}
+
+.option-hamburger form .movePageBox {
+  height: 100%;
+  width: 100%;
+  background: none;
+  color: #f5f5f5;
+  font-size: 30px;
+}
+
+.option-hamburger .movePageBox:hover {
+  color: #e97388;
+  cursor: pointer;
+}
+
+.option-music {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-y: scroll;
+
+  /* justify-content: flex-start; */
+}
+
+.option-music .musicListBox {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 2px;
+  background-color: #282828;
+}
+
+.option-music .musicListBox input {
+  margin: 0 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: none;
+  background-color: white;
+}
+
+.option-music .musicListBox .musicListBox_textBox {
+  height: 100%;
+  width: 100%;
+  background-color: #282828;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: solid #f5f5f5 1px;
+}
+
+.option-music .musicListBox .musicListBox_textBox .musicListBox_name {
+  font-size: 1rem;
+  color: white;
+}
+
+.option-music .musicListBox .musicListBox_textBox .musicListBox_time {
+  margin-left: auto;
+  margin-right: 10px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.option-alarm {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.option-alarm .alarmListBox {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 2px;
+  background-color: #282828;
+}
+
+.option-alarm .alarmListBox input {
+  margin: 0 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: none;
+  background-color: white;
+}
+
+.option-alarm .alarmListBox .alarmListBox_textBox {
+  height: 100%;
+  width: 100%;
+  background-color: #282828;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: solid #f5f5f5 1px;
+}
+
+.option-alarm .alarmListBox .alarmListBox_textBox .alarmListBox_name {
+  font-size: 1rem;
+  color: white;
+}
+
+.option-alarm .alarmListBox .alarmListBox_textBox .icon-pause {
+  margin-left: auto;
+  margin-right: 15px;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.bodyBox-center {
+  width: 84vw;
+}
+
+.bodyBox-center .titleBox {
+  height: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.titleBox .mainTitle {
+  font-size: 35px;
+}
+
+.titleBox .subTitle {
+  color: #c4c4c4;
+  font-size: 14px;
+}
+
+.bodyBox-center .timerBox {
+  height: 63vh;
+}
+
+.bodyBox-center .quoteBox {
+  height: 6vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+.bodyBox-center .quoteBox .quote {
+  font-size: 17px;
+  text-align: center;
+}
+
+.bodyBox-center .quoteBox .writer {
+  margin-top: 2px;
+  font-size: 13px;
+}
+
+.bodyBox-center .controlerBox {
+  height: 21vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.controlerBox .minuteBox {
+  width: 64%;
+  height: 10%;
+  display: flex;
+  color: #c4c4c4;
+  margin-bottom: 5px;
+}
+
+.controlerBox .minuteBox .endMinute {
+  margin-left: auto;
+}
+
+.controlerBox .minuteLine {
+  background-color: #c2c2c2;
+  height: 5px;
+  width: 64.5%;
+  border-radius: 5px;
+}
+
+.controlerBox .minuteLine .minuteLineFill {
+  height: 100%;
+  background-color: #474747;
+  border-radius: 5px;
+  width: 0;
+  transition: width 1s linear;
+}
+
+.controlerBox .minuteControlBtnBox {
+  height: 100%;
+  width: 35vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.controlerBox .minuteControlBtnBox .icon-skip {
+  font-size: 40px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.controlerBox .minuteControlBtnBox .btn-play {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 1px 2px 8px #9c9c9c, -1px 2px 8px #9c9c9c;
+  color: white;
+}
+
+.controlerBox .minuteControlBtnBox .btn-play .icon-play,
+.controlerBox .minuteControlBtnBox .btn-play .icon-pause {
+  font-size: 24px;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}

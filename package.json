@@ -1,0 +1,31 @@
+{
+  "name": "burnon",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "nodemon app.js"
+  },
+  "engines": {
+    "node": "16.x",
+    "yarn": "1.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chan050316/BurnOn.git"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.8",
+    "express": "^4.17.3",
+    "method-override": "^3.0.0",
+    "mysql2": "^2.3.3",
+    "node-schedule": "^2.1.0",
+    "notyf": "^3.10.0",
+    "pug": "^3.0.2",
+    "sequelize": "^6.17.0",
+    "sequelize-cli": "^6.4.1"
+  }
+}
