@@ -1,17 +1,20 @@
 const express = require("express");
 const router = express.Router();
 const fs = require("fs");
-const models = require("../models");
+const Quote = require("../models/quote");
 
 const musicFolder = "./public/audios";
 const alarmFolder = "./public/alarmSounds";
 const cafeteriaMenusData = "./public/data/cafeteriaMenus.json";
-let quotes;
 let randumQuote;
 const getQuoteData = async () => {
-  quotes = await models.Quote.findAll();
-  const RandumNum = Math.floor(Math.random() * quotes.length);
-  randumQuote = quotes[RandumNum];
+  try {
+    const quotes = await Quote.find();
+    console.log(quotes);
+    return quotes;
+  } catch (e) {
+    console.log(e);
+  }
 };
 
 router.get("/", (req, res) => {
@@ -99,12 +102,18 @@ router.get("/settingQuote", async (req, res) => {
   await getQuoteData();
   // console.log(quotes);
 
-  res.render("settingQuote", { quoteData: quotes });
+  res.render("settingQuote", { quotes });
 });
 
 router.post("/settingQuote/addQuote", (req, res) => {
-  // method PUT used method-override
-  models.Quote.create({
+  try {
+    const quote = new Quote(req.body.author, req.body.quote);
+    quote.save();
+    console.log("Create data success!");
+  } catch (e) {
+    console.log(e);
+  }
+  Quote.create({
     quote_text: req.body.quote,
     quote_author: req.body.author,
   })
