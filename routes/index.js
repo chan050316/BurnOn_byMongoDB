@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 const Quote = require("../models/quote");
+const mongoose = require("mongoose");
 
 const musicFolder = "./public/audios";
 const alarmFolder = "./public/alarmSounds";
@@ -99,31 +100,30 @@ router.get("/custom", (req, res) => {
 });
 
 router.get("/settingQuote", async (req, res) => {
-  await getQuoteData();
-  // console.log(quotes);
+  const quotes = await getQuoteData();
 
   res.render("settingQuote", { quotes });
 });
 
 router.post("/settingQuote/addQuote", (req, res) => {
   try {
-    const quote = new Quote(req.body.author, req.body.quote);
+    const quote = new Quote(req.body);
     quote.save();
     console.log("Create data success!");
+    res.redirect("back");
   } catch (e) {
     console.log(e);
   }
-  Quote.create({
-    quote_text: req.body.quote,
-    quote_author: req.body.author,
-  })
-    .then(result => {
-      console.log(result);
-      res.redirect("/settingQuote");
-    })
-    .catch(err => {
-      console.log(err);
-    });
+});
+
+router.delete("/settingQuote/deleteQuote", (req, res) => {
+  try {
+    const _id = mongoose.Types.ObjectId(req.body);
+    console.log(_id);
+    res.redirect("back");
+  } catch (e) {
+    console.log(e);
+  }
 });
 
 module.exports = router;

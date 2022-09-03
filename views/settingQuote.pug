@@ -4,9 +4,12 @@ html(lang="en")
     title setting quote
     include includes/head.pug
   body 
-    form(action="/settingQuote/addQuote?_method=put", method="post")
+    form(action="/settingQuote/addQuote?_method=PUT", method="post")
       input(type="text", name="quote", placeholder="quote") 
       input(type="text", name="author", placeholder="author")
       input(type="submit", value="add")
-    -for(i in quoteData)
-      div #{quoteData[i].id + ", " + quoteData[i].quote_text + ", " + quoteData[i].quote_author}
+    -for(quoteData of quotes)
+      div #{quoteData.quote + ", " + quoteData.author}
+      form(action="/settingQuote/deleteQuote?_method=DELETE", method="post") 
+        input(type="text", name="id", value=quoteData._id, style="display:none")
+        input(type="submit", value="delete")
