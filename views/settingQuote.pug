@@ -1,15 +1,18 @@
 doctype html
 html(lang="en")
   head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title setting quote
     include includes/head.pug
   body 
-    form(action="/settingQuote/addQuote?_method=PUT", method="post")
+    form(action="/settingQuote/add?_method=PUT", method="POST")
       input(type="text", name="quote", placeholder="quote") 
       input(type="text", name="author", placeholder="author")
       input(type="submit", value="add")
     -for(quoteData of quotes)
       div #{quoteData.quote + ", " + quoteData.author}
-      form(action="/settingQuote/deleteQuote?_method=DELETE", method="post") 
-        input(type="text", name="id", value=quoteData._id, style="display:none")
+      form(action="/settingQuote/delete?_method=DELETE", method="POST") 
+        input(style="display:none", type="text", name="id", value=quoteData._id)
         input(type="submit", value="delete")

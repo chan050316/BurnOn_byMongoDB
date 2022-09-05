@@ -1,5 +1,4 @@
-const express = require("express");
-const router = express.Router();
+const router = require("express").Router();
 const fs = require("fs");
 const Quote = require("../models/quote");
 const mongoose = require("mongoose");
@@ -105,9 +104,9 @@ router.get("/settingQuote", async (req, res) => {
   res.render("settingQuote", { quotes });
 });
 
-router.post("/settingQuote/addQuote", (req, res) => {
+router.put("/settingQuote/add", async (req, res) => {
+  const quote = new Quote(req.body);
   try {
-    const quote = new Quote(req.body);
     quote.save();
     console.log("Create data success!");
     res.redirect("back");
@@ -116,11 +115,11 @@ router.post("/settingQuote/addQuote", (req, res) => {
   }
 });
 
-router.delete("/settingQuote/deleteQuote", (req, res) => {
+router.delete("/settingQuote/delete", async (req, res) => {
   try {
-    const _id = mongoose.Types.ObjectId(req.body);
+    const _id = mongoose.Types.ObjectId(req.body.id);
     console.log(_id);
-    res.redirect("back");
+    res.redirect("/settingQuote");
   } catch (e) {
     console.log(e);
   }

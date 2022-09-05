@@ -4,7 +4,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const indexRouter = require("./routes/index");
+const indexRouter = require("./routes/router");
 const cookieParser = require("cookie-parser");
 const methodOverride = require("method-override");
 const mongoose = require("mongoose");
@@ -18,7 +18,7 @@ mongoose
     console.error(err);
   });
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
 app.use(cookieParser());
