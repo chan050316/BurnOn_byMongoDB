@@ -10,7 +10,7 @@ let randumQuote;
 const getQuoteData = async () => {
   try {
     const quotes = await Quote.find();
-    console.log(quotes);
+    // console.log(quotes);
     return quotes;
   } catch (e) {
     console.log(e);
@@ -104,11 +104,12 @@ router.get("/settingQuote", async (req, res) => {
   res.render("settingQuote", { quotes });
 });
 
-router.put("/settingQuote/add", async (req, res) => {
-  const quote = new Quote(req.body);
+router.put("/settingQuote/add", (req, res) => {
+  console.log(req.params);
+  // const quote = new Quote(req.body);
   try {
-    quote.save();
-    console.log("Create data success!");
+    // quote.save();
+    // console.log("Create data success!");
     res.redirect("back");
   } catch (e) {
     console.log(e);

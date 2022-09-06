@@ -7,12 +7,15 @@ html(lang="en")
     title setting quote
     include includes/head.pug
   body 
-    form(action="/settingQuote/add?_method=PUT", method="POST")
+    form(id="addForm")
       input(type="text", name="quote", placeholder="quote") 
       input(type="text", name="author", placeholder="author")
-      input(type="submit", value="add")
+      input(type="submit", value="add", id="add")
     -for(quoteData of quotes)
       div #{quoteData.quote + ", " + quoteData.author}
-      form(action="/settingQuote/delete?_method=DELETE", method="POST") 
+      form(action="/settingQuote/delete?_method=DELETE", method="POST", class="addForm") 
         input(style="display:none", type="text", name="id", value=quoteData._id)
-        input(type="submit", value="delete")
+        input(type="submit", value="delete", id="delete")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
+    script(src="javascripts/ajax.js")
+
